@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Chess</string>
+    <string name="title_recordings">Recordings</string>
+    <string name="title_game">Playing</string>
+</resources>

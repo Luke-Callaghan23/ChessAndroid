@@ -1,0 +1,1555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_playing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.BoardFragment">
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="372dp"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/turn"
+                android:layout_width="98dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:onClick="turn"
+                android:text="Turn" />
+
+            <Button
+                android:id="@+id/ai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="ai"
+                android:text="AI" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/draw"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:onClick="draw"
+                android:text="Draw" />
+
+            <Button
+                android:id="@+id/undo"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:onClick="undo"
+                android:text="Undo" />
+
+            <Button
+                android:id="@+id/resign"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:onClick="resign"
+                android:text="Resign" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/grid"
+        android:layout_width="391dp"
+        android:layout_height="323dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_1">
+
+                    <ImageView
+                        android:id="@+id/board_1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_1_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_2">
+
+                    <ImageView
+                        android:id="@+id/board_1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_1_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_3">
+
+                    <ImageView
+                        android:id="@+id/board_1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_1_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_4">
+
+                    <ImageView
+                        android:id="@+id/board_1_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_1_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_5">
+
+                    <ImageView
+                        android:id="@+id/board_1_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_1_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_6">
+
+                    <ImageView
+                        android:id="@+id/board_1_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_1_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_7">
+
+                    <ImageView
+                        android:id="@+id/board_1_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_1_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_1_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_1_8">
+
+                    <ImageView
+                        android:id="@+id/board_1_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_1_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_1">
+
+                    <ImageView
+                        android:id="@+id/board_2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_2_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_2">
+
+                    <ImageView
+                        android:id="@+id/board_2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_2_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_3">
+
+                    <ImageView
+                        android:id="@+id/board_2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_2_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_4">
+
+                    <ImageView
+                        android:id="@+id/board_2_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_2_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_5">
+
+                    <ImageView
+                        android:id="@+id/board_2_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_2_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_6">
+
+                    <ImageView
+                        android:id="@+id/board_2_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_2_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_7">
+
+                    <ImageView
+                        android:id="@+id/board_2_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_2_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_2_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_2_8">
+
+                    <ImageView
+                        android:id="@+id/board_2_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_2_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_1">
+
+                    <ImageView
+                        android:id="@+id/board_3_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_3_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_2">
+
+                    <ImageView
+                        android:id="@+id/board_3_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_3_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_3">
+
+                    <ImageView
+                        android:id="@+id/board_3_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_3_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_4">
+
+                    <ImageView
+                        android:id="@+id/board_3_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_3_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_5">
+
+                    <ImageView
+                        android:id="@+id/board_3_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_3_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_6">
+
+                    <ImageView
+                        android:id="@+id/board_3_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_3_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_7">
+
+                    <ImageView
+                        android:id="@+id/board_3_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_3_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_3_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_3_8">
+
+                    <ImageView
+                        android:id="@+id/board_3_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_3_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_1">
+
+                    <ImageView
+                        android:id="@+id/board_4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_4_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_2">
+
+                    <ImageView
+                        android:id="@+id/board_4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_4_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_3">
+
+                    <ImageView
+                        android:id="@+id/board_4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_4_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_4">
+
+                    <ImageView
+                        android:id="@+id/board_4_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_4_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_5">
+
+                    <ImageView
+                        android:id="@+id/board_4_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_4_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_6">
+
+                    <ImageView
+                        android:id="@+id/board_4_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_4_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_4_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_7">
+
+                    <ImageView
+                        android:id="@+id/board_4_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_4_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/position_4_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_4_8">
+
+                    <ImageView
+                        android:id="@+id/board_4_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_4_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_1">
+
+                    <ImageView
+                        android:id="@+id/board_5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_5_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_2">
+
+                    <ImageView
+                        android:id="@+id/board_5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_5_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_3">
+
+                    <ImageView
+                        android:id="@+id/board_5_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_5_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_4">
+
+                    <ImageView
+                        android:id="@+id/board_5_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_5_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_5">
+
+                    <ImageView
+                        android:id="@+id/board_5_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_5_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_6">
+
+                    <ImageView
+                        android:id="@+id/board_5_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_5_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_7">
+
+                    <ImageView
+                        android:id="@+id/board_5_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_5_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_5_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_5_8">
+
+                    <ImageView
+                        android:id="@+id/board_5_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_5_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_1">
+
+                    <ImageView
+                        android:id="@+id/board_6_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_6_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_2">
+
+                    <ImageView
+                        android:id="@+id/board_6_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_6_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_3">
+
+                    <ImageView
+                        android:id="@+id/board_6_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_6_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_4">
+
+                    <ImageView
+                        android:id="@+id/board_6_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_6_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_5">
+
+                    <ImageView
+                        android:id="@+id/board_6_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_6_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_6">
+
+                    <ImageView
+                        android:id="@+id/board_6_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_6_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_7">
+
+                    <ImageView
+                        android:id="@+id/board_6_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_6_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_6_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_6_8">
+
+                    <ImageView
+                        android:id="@+id/board_6_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_6_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_1">
+
+                    <ImageView
+                        android:id="@+id/board_7_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_7_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_2">
+
+                    <ImageView
+                        android:id="@+id/board_7_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_7_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_3">
+
+                    <ImageView
+                        android:id="@+id/board_7_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_7_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_4">
+
+                    <ImageView
+                        android:id="@+id/board_7_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_7_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_5">
+
+                    <ImageView
+                        android:id="@+id/board_7_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_7_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_6">
+
+                    <ImageView
+                        android:id="@+id/board_7_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_7_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_7">
+
+                    <ImageView
+                        android:id="@+id/board_7_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_7_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_7_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_7_8">
+
+                    <ImageView
+                        android:id="@+id/board_7_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_7_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_1">
+
+                    <ImageView
+                        android:id="@+id/board_8_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_8_1" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_2">
+
+                    <ImageView
+                        android:id="@+id/board_8_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_8_2" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_3">
+
+                    <ImageView
+                        android:id="@+id/board_8_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_8_3" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_4">
+
+                    <ImageView
+                        android:id="@+id/board_8_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_8_4" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_5">
+
+                    <ImageView
+                        android:id="@+id/board_8_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_8_5" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_6">
+
+                    <ImageView
+                        android:id="@+id/board_8_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_8_6" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_7">
+
+                    <ImageView
+                        android:id="@+id/board_8_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c97d0a"
+                        android:onClick="boardClick"
+                        android:tag="board_8_7" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/position_8_8"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:tag="position_8_8">
+
+                    <ImageView
+                        android:id="@+id/board_8_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="#c1bcc4"
+                        android:onClick="boardClick"
+                        android:tag="board_8_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="320dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="50dp"
+            android:layout_height="47dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Turn:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/colorText"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:text="White"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/checkedView"
+            android:layout_width="77dp"
+            android:layout_height="37dp"
+            android:text="Checked:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/checked"
+            android:layout_width="86dp"
+            android:layout_height="36dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
